@@ -1,0 +1,7 @@
+data/
+runs/
+*.pt
+*.onnx
+*.engine
+__pycache__/
+.DS_Store
