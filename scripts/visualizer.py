@@ -60,9 +60,9 @@ class Visualize(object):
     
 if __name__ == '__main__': 
 
-    obj = Visualize("/path/to/CholecTrack20/dataset", video="VID02")
+    obj = Visualize("data", split="Validation", video="VID30")
     
     # To view the frame ids
     # print(obj.list_frames())
     
-    obj.view(11851)
+    obj.view(13001)
