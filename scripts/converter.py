@@ -61,3 +61,24 @@ for split_folder, yolo_split in SPLITS.items():
             if not dest.exists():
                 dest.symlink_to(image_path.resolve())
         print(yolo_split, video_dir.name, len(annotations), "missing:", missing)
+
+yolo_root = Path("yolo").resolve()
+
+yaml_text = f"""path: {yolo_root}
+train: images/train
+val: images/val
+test: images/test
+names: 
+  0 grasper, 
+  1 bipolar, 
+  2 hook, 
+  3 scissors, 
+  4 clipper, 
+  5 irrigator, 
+  6 specimen-bag
+"""
+
+with open(yolo_root / "data.yaml", "w") as f:
+    f.write(yaml_text)
+
+
