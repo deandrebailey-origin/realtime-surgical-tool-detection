@@ -69,13 +69,13 @@ train: images/train
 val: images/val
 test: images/test
 names: 
-  0 grasper, 
-  1 bipolar, 
-  2 hook, 
-  3 scissors, 
-  4 clipper, 
-  5 irrigator, 
-  6 specimen-bag
+  0: grasper
+  1: bipolar 
+  2: hook 
+  3: scissors 
+  4: clipper 
+  5: irrigator 
+  6: specimen-bag
 """
 
 with open(yolo_root / "data.yaml", "w") as f:

@@ -1,7 +1,8 @@
+yolo/
 data/
 runs/
 *.pt
 *.onnx
 *.engine
 __pycache__/
-.DS_Storeyolo/
+.DS_Store
