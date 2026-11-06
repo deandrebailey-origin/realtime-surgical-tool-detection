@@ -60,9 +60,10 @@ class Visualize(object):
     
 if __name__ == '__main__': 
 
-    obj = Visualize("data", split="Validation", video="VID30")
+    obj = Visualize("data", split="Validation", video="VID110")
     
     # To view the frame ids
     # print(obj.list_frames())
     
-    obj.view(13001)
+    obj.view(48301)
+    

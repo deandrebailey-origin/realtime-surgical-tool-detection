@@ -6,3 +6,7 @@ runs/
 *.engine
 __pycache__/
 .DS_Store
+*.zip
+runs/
+results/runs/
+results/best/
