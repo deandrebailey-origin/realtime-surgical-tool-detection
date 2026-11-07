@@ -64,6 +64,8 @@ Every decision and the evidence behind it is recorded in [docs/converter.md](doc
 
 *Coming soon: baseline mAP@50 and mAP@50-95 per class, plus a latency comparison across inference backends.*
 
+Model size comparison (val, VID110): YOLO11s improved mAP50-95 from 0.491 → 0.504 over YOLO11n, but the irrigator stayed near zero (0.026 → 0.033). This supports the finding that the irrigator problem comes from training data concentration (75% from 2 videos), not model capacity.
+
 ## Run it
 
 ```bash

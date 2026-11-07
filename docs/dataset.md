@@ -55,3 +55,27 @@ One JSON file per video. Top-level keys:
 - `operators`: 0 null, 1 main surgeon left hand (MSLH), 2 assistant surgeon right hand (ASRH), 3 main surgeon right hand (MSRH)
 
 - VID30 excluded. Image frame numbers (11801–84776) don’t match label frame IDs (2876–34026). Visual checks on frames 13001 and 26776 showed boxes on empty tissue and visible tools with no boxes. VID02 (control) aligned correctly. Validation uses VID110 only.
+
+### Irrigator Issues
+
+- Class	Total boxes	Videos with ≥1 box	Share from top 2 videos	Val mAP50-95
+- Scissors	627	10 / 10	52% (VID02, VID11)	0.455
+- Clipper	731	10 / 10	51% (VID31, VID11)	0.609
+- Irrigator	653	7 / 10	75% (VID31, VID02)	0.026
+
+- Irrigator performance was poor (0.3 mAP 50:95)
+
+VID02 irr boxes: 169
+VID04 irr boxes: 0
+VID103 irr boxes: 0
+VID11 irr boxes: 91
+VID13 irr boxes: 0
+VID17 irr boxes: 27
+VID23 irr boxes: 31
+VID31 irr boxes: 320
+VID37 irr boxes: 8
+VID96 irr boxes: 7
+
+- 75% of the boxes because they came from specifically 3 Videos
+- Error Analysis of the validation set showed that predcition were incorrect on visible irrigator tool
+- 

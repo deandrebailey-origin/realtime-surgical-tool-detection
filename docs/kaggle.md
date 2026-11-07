@@ -58,3 +58,14 @@ yolo detect predict model=results/best.pt source=data/Validation/VID110/Frames/0
 yolo detect predict model=results/best.pt source=data/Validation/VID110/Frames/041201.png conf=0.1 save=True
 yolo detect predict model=results/best.pt source=data/Validation/VID110/Frames/046276.png conf=0.1 save=True
 yolo detect predict model=results/best.pt source=data/Validation/VID110/Frames/048301.png conf=0.1 save=True
+
+VID02 irr boxes: 169
+VID04 irr boxes: 0
+VID103 irr boxes: 0
+VID11 irr boxes: 91
+VID13 irr boxes: 0
+VID17 irr boxes: 27
+VID23 irr boxes: 31
+VID31 irr boxes: 320
+VID37 irr boxes: 8
+VID96 irr boxes: 7

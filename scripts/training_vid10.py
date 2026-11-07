@@ -2,12 +2,11 @@ import json
 from pathlib import Path
 
 DATA_DIR = Path("data")
-SPLITS = {"Validation": "val"}
+SPLITS = {"Training": "train"}
 EXCLUDE = {"VID30"}
 
 # split folder Training, Validation Testing
 # yolo split = train val test
-irr = 0
 
 for split_folder, yolo_split in SPLITS.items():
     split_dir = DATA_DIR / split_folder
@@ -19,7 +18,7 @@ for split_folder, yolo_split in SPLITS.items():
         if video_dir.name in EXCLUDE:
             continue
 
-        
+        irr = 0
 
         json_path = video_dir / f"{video_dir.name}.json"
 
@@ -45,12 +44,14 @@ for split_folder, yolo_split in SPLITS.items():
                 class_id = box["instrument"]
                 x, y, w, h = box["tool_bbox"]
 
-                if class_id == 5:
+                if class_id == 4:
                     irr += 1
+
+        print(f"{video_dir.name} clipper boxes: {irr}")
         
 
 
-print(irr)
+
 
 
 
