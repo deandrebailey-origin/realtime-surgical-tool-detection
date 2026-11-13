@@ -62,7 +62,18 @@ Every decision and the evidence behind it is recorded in [docs/converter.md](doc
 
 ## Results
 
-*Coming soon: baseline mAP@50 and mAP@50-95 per class, plus a latency comparison across inference backends.*
+Overall: mAP50 0.718, mAP50-95 0.424
+
+Class	Test mAP50	Test mAP50-95	Val mAP50-95
+grasper	0.882	0.584	0.631
+bipolar	0.840	0.476	0.636
+hook	0.940	0.558	0.499
+scissors	0.510	0.313	0.496
+clipper	0.844	0.525	0.604
+irrigator	0.446	0.151	0.033
+specimen-bag	0.564	0.360	0.625
+
+Below the official YOLOv8 number (maybe more epochs or other reasons)
 
 Model size comparison (val, VID110): YOLO11s improved mAP50-95 from 0.491 → 0.504 over YOLO11n, but the irrigator stayed near zero (0.026 → 0.033). This supports the finding that the irrigator problem comes from training data concentration (75% from 2 videos), not model capacity.
 
