@@ -33,9 +33,9 @@ ONNX  ──►  TensorRT engine (FP16 / INT8)  ──►  C++ inference app
 - [x] Write a converter from CholecTrack20 JSON to YOLO format ([docs/converter.md](docs/converter.md))
 - [x] Verify labels visually and audit data quality
 - [x] Smoke-test training (YOLO11n, 1 epoch): the pipeline works end to end
-- [ ] Train a baseline YOLO11s and report per-class results
-- [ ] Extract test-set frames from video and run the final evaluation
-- [ ] Export to ONNX and benchmark with ONNX Runtime
+- [x] Train a baseline YOLO11s and report per-class results
+- [x] Extract test-set frames from video and run the final evaluation
+- [x] Export to ONNX and benchmark with ONNX Runtime
 - [ ] Build a TensorRT engine (FP16 / INT8) and compare latency and accuracy
 - [ ] C++ inference application
 - [ ] Latency table: PyTorch vs. ONNX Runtime vs. TensorRT
@@ -76,6 +76,17 @@ specimen-bag	0.564	0.360	0.625
 Below the official YOLOv8 number (maybe more epochs or other reasons)
 
 Model size comparison (val, VID110): YOLO11s improved mAP50-95 from 0.491 → 0.504 over YOLO11n, but the irrigator stayed near zero (0.026 → 0.033). This supports the finding that the irrigator problem comes from training data concentration (75% from 2 videos), not model capacity.
+
+### Latency
+
+| Backend | Preprocess | Inference | Postprocess | Total | p95 inference | FPS |
+|---|---|---|---|---|---|---|
+| PyTorch | 1.0 ms | 58.7 ms | 0.3 ms | 60.0 ms | ___ ms | 16.7 |
+| ONNX Runtime (CPU) | 0.8 ms | 42.0 ms | 0.9 ms | 43.7 ms | ___ ms | 22.9 |
+
+**Conditions:** YOLO11s, Apple M4 CPU, batch size 1, 640×640 input, mean over 200 test frames after 10 warm-up runs, with the two backends alternated per frame. Times are per image.
+
+ONNX Runtime runs inference about 1.4× faster than PyTorch on the same CPU, with matching detections (verified on test frames: same classes, confidence within 0.001, boxes within 0.04 px). TensorRT results on an NVIDIA T4 are next.
 
 ## Run it
 
