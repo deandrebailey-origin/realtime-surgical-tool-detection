@@ -10,10 +10,10 @@ image_paths = sorted(FRAMES_DIR.glob("*.png"))[:200]
 print(f"Found {len(image_paths)} images")
 print("First:", image_paths[0].name, "| Last:", image_paths[-1].name)
 
-model_pytorch = YOLO("results/yolo11s.pt")
+model_pytorch = YOLO("results/yolo11s_best.pt")
 
 # for onnx need to specify task to detect
-model_onnx = YOLO("results/yolo11s.onnx", task="detect")
+model_onnx = YOLO("results/yolo11s_best.onnx", task="detect")
 
 for path in image_paths[:10]:
     model_pytorch.predict(path, imgsz=640, conf=0.25, verbose=False)
